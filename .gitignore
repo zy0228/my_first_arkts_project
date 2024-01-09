@@ -10,3 +10,9 @@
 /.clang-tidy
 **/.test
 **/.vscode
+*.js
+*.js.map
+src/main/**/*.js
+src/main/**/*.js.map
+src/main/**/**/*.js
+src/main/**/**/*.js.map

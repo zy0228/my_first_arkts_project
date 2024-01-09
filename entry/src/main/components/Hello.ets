@@ -1,3 +1,25 @@
-@Builder function HelloWord($$: {label: string}) {
-  Text(`${$$.label}`)
+@Extend(Text) function sass(size: number, onClick: () => void) {
+  .backgroundColor(Color.Red)
+  .fontSize(size)
+  .onClick(onClick)
+}
+
+@Component
+export struct Hello {
+  @State message: string = 'Hello, World!';
+
+  @Styles less() {
+    .backgroundColor(Color.Black)
+  }
+
+  build() {
+    // HelloComponent自定义组件组合系统组件Row和Text
+    Row() {
+      Text(this.message)
+        .less()
+        .sass(50, () => {
+          this.message = 'xixixii '
+        })
+    }
+  }
 }

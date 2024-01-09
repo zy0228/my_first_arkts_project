@@ -1,4 +1,6 @@
 
+import { Hello } from '../../components/Hello'
+
 @Builder function GlobalBuilder1($$: {label: string}) {
   Button($$.label)
     .width(400)
@@ -29,18 +31,29 @@ struct Child{
 struct Index {
   @State label: string = 'Hello World'
 
-
   onPageShow() {
     console.log("show")
   }
 
   @Builder componentBuilder() {
     Text(`${this.label}`)
+      .stateStyles({
+        focused: {
+          .backgroundColor(Color.Blue)
+        },
+        pressed: {
+          .backgroundColor(Color.Orange)
+        },
+        normal: {
+          .backgroundColor(Color.Brown)
+        }
+      })
     Divider()
   }
 
   build() {
     Column() {
+      Hello({ message: 'Hello, World!' })
       this.componentBuilder()
       Child({aBuilder: this.componentBuilder, aBuilder1: GlobalBuilder1})
     }

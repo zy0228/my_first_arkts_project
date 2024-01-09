@@ -1,16 +1,37 @@
-import HelloComponent from '../../components/Hello';
+import { Hello } from '../../components/Hello';
 function GlobalBuilder1($$) {
         .width(400)
         .height(50)
+        .fontColor(Color.Red)
+        .fontSize(24)
+        .margin(10)
         .backgroundColor(Color.Green);
 }
 struct Child extends  {
-    constructor() { }
+    constructor(
+    ) {
+    }
+    build() {
+        ;
+    }
 }
 struct Index extends   {
-    constructor() { }
+    constructor(
+    ) {
+    }
     onPageShow() {
         console.log("show");
+    }
+    componentBuilder() {
+            .stateStyles({
+            focused: {
+                
+          : 
+          
+                    .backgroundColor(Color.Blue)
+            }
+        });
+        ;
     }
     build() {
         ;
