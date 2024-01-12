@@ -6,7 +6,8 @@
 
 @Component
 export struct Hello {
-  @State message: string = 'Hello, World!';
+  @Consume publicData: number;
+  @Prop message: string;
 
   @Styles less() {
     .backgroundColor(Color.Black)
@@ -19,6 +20,10 @@ export struct Hello {
         .less()
         .sass(50, () => {
           this.message = 'xixixii '
+        })
+      Button(`${this.publicData}`)
+        .onClick(() => {
+          this.publicData = 100
         })
     }
   }

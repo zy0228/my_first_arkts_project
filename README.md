@@ -69,3 +69,15 @@ strut Main {
   .onClick(handleClick)
 }
 ```
+
+## 管理组内的状态
+### @State
+组建内
+### @Prop
+单向
+### @Link
+父子双向同步
+### @Provide @Consume
+与子组建无限嵌套的子组建之间的状态同步
+### @Observer @ObjectLink
+嵌套类的变化
