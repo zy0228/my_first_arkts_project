@@ -70,12 +70,27 @@ struct Index {
   @Provide publicData: number = 300
   @State testObserved: ReactiveData = new ReactiveData()
 
+  @State arrList: number[] = [1, 2, 3]
+
+
   onPageShow() {
+    let storage = new LocalStorage({propA: 1})
+    let A = storage.get('propA')
+
+    let storage1 = storage.link('propA')
+    storage1.set('the word')
     console.log(this.testObserved.a)
     console.log("show")
   }
 
   @Builder componentBuilder() {
+    if (true) {
+      Button('condition')
+    }
+
+    ForEach(this.arrList, (item: number) => {
+      Text(`${item}`)
+    }, (item: number) => item.toString())
     Text(`${this.label}`)
       .fontSize(40)
       .stateStyles({
